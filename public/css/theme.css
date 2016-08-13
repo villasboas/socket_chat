@@ -1,0 +1,50 @@
+* {
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+.sidebar {
+	height: 100%;
+	position: fixed;
+	max-width: 240px;
+	background: #f9f9f9;
+}
+
+.wrapper {
+	height: 100%;
+	position: absolute;
+}
+
+.margin-top{
+	margin-top: 5px;
+}
+
+.msg_container {
+	display:table;
+	width: 100%;
+}
+
+.msg_wrapper {
+	list-style: none;
+	display: table;
+	background: red;
+}
+
+.send {
+	float: right;
+	width: 70%;
+	background: #00BFFF;
+	padding: 5px;
+	border-radius: 5px;
+	color: #fff;
+}
+
+.received {
+	float: left;
+	width: 70%;
+	background: #33cc33;
+	padding: 5px;
+	border-radius: 5px;
+	color: #fff;
+}

@@ -1,7 +1,17 @@
 //configurações iniciais
-var app  = require('express')();
-var http = require('http').Server(app);
-var io   = require('socket.io')(http);
+var express = require('express');
+var app  	= express();
+var http 	= require('http').Server(app);
+var io   	= require('socket.io')(http);
+var path 	= require('path');
+
+//configura o express
+app.engine('.html', require('ejs').__express);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'html');
+
+//define o caminho de arquivos publicos
+app.use(express.static(path.join(__dirname, 'public')));
 
 //pagina principal do site
 app.get('/?', function(req, res){
@@ -21,7 +31,7 @@ io.on('connection', function(socket){
 
 	//recebe as mensagens
 	socket.on('chat message', function(msg){
-		io.emit('chat message', msg);
+		socket.broadcast.emit('chat message', msg);
 	})
 })
 
