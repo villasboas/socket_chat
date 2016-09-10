@@ -17,7 +17,25 @@ app.get('/', function(request, response) {
 
 //sockets
 io.on('connection', function(socket){
+
+  //escreve no console quando um usuario se conectar
   console.log('a user connected');
+  
+  //quando um usuario desconectar
+  socket.on('disconnect', function(){
+
+    //manda uma mensagem quando o usuario desconectar
+    console.log('user disconnected');
+  });
+
+  //quando uma mensagem for enviada
+  socket.on('chat message', function(msg){
+
+    //emite a mensagem recebida
+    console.log('message: ' + msg);
+    io.emit('chat message', msg);
+  });
+
 });
 
 app.listen(app.get('port'), function() {
