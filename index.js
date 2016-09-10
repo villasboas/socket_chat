@@ -1,13 +1,12 @@
 var express = require('express');
 var app     = express();
+var http    = require('http').Server(app);
+var io      = require('socket.io')(http);
+
+//seta as origins permitidashttp://127.0.0.1/
+io.set('origins', 'http://127.0.0.1/edsa-angular2/');
 
 app.set('port', (process.env.PORT || 5000));
-
-var server  = app.listen(app.get('port'));
-var io      = require('socket.io').listen(server);
-
-//seta as origins permitidas
-io.set('origins', 'http://127.0.0.1/');
 
 app.use(express.static(__dirname + '/public'));
 
