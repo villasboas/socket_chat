@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/villasboas/socket_chat/issues"
   },
+  "engines": {
+    "node": "4.4.7"
+  },
   "homepage": "https://github.com/villasboas/socket_chat#readme"
 }
