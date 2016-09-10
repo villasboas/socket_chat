@@ -5,7 +5,7 @@ var http 	= require('http').Server(app);
 var io   	= require('socket.io')(http);
 var path 	= require('path');
 
-//configura o express
+/*configura o express
 app.engine('.html', require('ejs').__express);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
@@ -18,7 +18,7 @@ app.get('/?', function(req, res){
 	res.sendFile(__dirname+'/views/index.html');
 });
 
-/*chama o evento connecto no objeto io
+chama o evento connecto no objeto io
 io.on('connection', function(socket){
 	
 	//ações quando o socket for conectado	
