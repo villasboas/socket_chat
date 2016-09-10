@@ -1,12 +1,10 @@
 var express = require('express');
 var app     = express();
 var http    = require('http').Server(app);
-var path    = "https://pacific-lake-48874.herokuapp.com/";
-var allowedOrigins = "*";
-var io      = require('socket.io')(http, {
-    origins: allowedOrigins,
-    path : path
-});
+var io      = require('socket.io')(http);
+
+//seta as origins permitidas
+io.set('origins', 'http://127.0.0.1/edsa-angular2/');
 
 app.set('port', (process.env.PORT || 5000));
 
