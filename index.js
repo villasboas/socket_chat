@@ -4,7 +4,7 @@ var http    = require('http').Server(app);
 var io      = require('socket.io')(http);
 
 //seta as origins permitidas
-io.set('origins', 'http://127.0.0.1/edsa-angular2/');
+io.set('origins', 'http://127.0.0.1/');
 
 app.set('port', (process.env.PORT || 5000));
 
