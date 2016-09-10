@@ -18,7 +18,7 @@ app.get('/?', function(req, res){
 	res.sendFile(__dirname+'/views/index.html');
 });
 
-//chama o evento connecto no objeto io
+/*chama o evento connecto no objeto io
 io.on('connection', function(socket){
 	
 	//ações quando o socket for conectado	
@@ -33,7 +33,7 @@ io.on('connection', function(socket){
 	socket.on('chat message', function(msg){
 		socket.broadcast.emit('chat message', msg);
 	})
-})
+})*/
 
 //faz o server escutar a porta 3000
 http.listen(3000, function(){
