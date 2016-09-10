@@ -15,28 +15,22 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-//sockets
+//chama o evento connecto no objeto io
 io.on('connection', function(socket){
+	
+	//ações quando o socket for conectado	
+	console.log('A user connected');
 
-  //escreve no console quando um usuario se conectar
-  console.log('a user connected');
-  
-  //quando um usuario desconectar
-  socket.on('disconnect', function(){
+	//ações quando o socket for desconectado
+	socket.on('disconnect', function(){
+		console.log('A user disconnected');
+	})
 
-    //manda uma mensagem quando o usuario desconectar
-    console.log('user disconnected');
-  });
-
-  //quando uma mensagem for enviada
-  socket.on('chat message', function(msg){
-
-    //emite a mensagem recebida
-    console.log('message: ' + msg);
-    io.emit('chat message', msg);
-  });
-
-});
+	//recebe as mensagens
+	socket.on('chat message', function(msg){
+		socket.broadcast.emit('chat message', msg);
+	})
+})
 
 http.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
